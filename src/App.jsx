@@ -16,8 +16,8 @@ function App() {
         <div className='my-0 mx-10'>
         <Routes>
           <Route path='/' component={Home} element={<Home/>}/>
-          <Route path='/movie:imdbID' element={<MovieDetail/>}/>
-          <Route path='*' element={<PageNotFound/>}/>
+          <Route path='/movie/:imdbID' element={<MovieDetail/>}/>
+          <Route element={<PageNotFound/>}/>
         </Routes>
         </div>
         <Footer/>

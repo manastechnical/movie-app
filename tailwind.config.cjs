@@ -9,7 +9,11 @@ module.exports = {
         'primary-color':'#0f171e',
         'secondary-color':'#1a242f',
         'font-primary':'#ffffff',
-        'font-secondary':'#79b8f3'
+        'font-secondary':'#79b8f3',
+        'gold':'#FFD700',
+        'thumbsUp':'#fafafa',
+        'calendar':'#ffdab9',
+        'votes':''
       },
       gridTemplateColumns:{
         'aFill':'repeat(auto-fill,minmax(220px,1fr))'
