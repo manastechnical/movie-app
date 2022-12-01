@@ -23,9 +23,13 @@ const MovieDetail = () => {
     }
   }, [dispatch, imdbID]);
 
-
   return (
-    loading ? (<div className='flex flex-col lg:flex-row lg:justify-evenly py-10 px-0 text-font-primary font-normal'>
+    Object.keys(data).length === 0 ? 
+      (<div className='flex justify-evenly py-10 px-0 text-font-primary font-normal mb-20'>
+        <ReactLoading color='#ffffff' height={66} width={200} />
+      </div>)
+      :
+      (<div className='flex flex-col lg:flex-row lg:justify-evenly py-10 px-0 text-font-primary font-normal'>
       <div className='section-left'>
         <div className='text-4xl text-font-primary'>{data.Title}</div>
         <div className='lg:hidden flex justify-center'>
@@ -54,6 +58,10 @@ const MovieDetail = () => {
             <span className='text-font-secondary'>{data.Director}</span>
           </div>
           <div className='my-2'>
+            <span className='py-3 mr-2 px-0 text-font-primary font-semibold w-full'>Writer:</span>
+            <span className='text-font-secondary'>{data.Writer}</span>
+          </div>
+          <div className='my-2'>
             <span className='py-3 mr-2 px-0 text-font-primary font-semibold w-full'>Actors:</span>
             <span className='text-font-secondary'>{data.Actors}</span>
           </div>
@@ -70,18 +78,19 @@ const MovieDetail = () => {
             <span className='text-font-secondary'>{data.Language}</span>
           </div>
           <div className='my-2'>
+            <span className='py-3 mr-2 px-0 text-font-primary font-semibold w-full'>Country:</span>
+            <span className='text-font-secondary'>{data.Country}</span>
+          </div>
+          {data.Type === "movie"? (<div className='my-2'>
             <span className='py-3 mr-2 px-0 text-font-primary font-semibold w-full'>BoxOffice:</span>
             <span className='text-font-secondary'>{data.BoxOffice}</span>
-          </div>
+          </div>):null}
         </div>
       </div>
       <div className='lg:min-w-fit lg:flex hidden'>
         <img src={data.Poster} alt={data.Title} />
       </div>
-    </div>) :
-      <div className='flex justify-evenly py-10 px-0 text-font-primary font-normal mb-20'>
-        <ReactLoading color='#ffffff' height={66} width={200} />
-      </div>
+    </div>)
   );
 }
 

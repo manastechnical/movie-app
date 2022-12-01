@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const MovieCard = ({ key, data }) => {
 
   return (
-    <div className='bg-secondary-color cursor-pointer transition-all duration-200 ease-out hover:opacity-50 transform hover:-translate-y-1 hover:scale-110'>
+    <div className='bg-secondary-color cursor-pointer min-h-[450px] h-full m-2 transition-all duration-200 ease-out hover:opacity-50 transform hover:-translate-y-1 hover:scale-110'>
       <Link to={`/movie/${data.imdbID}`}>
       <div className=''>
         <div className='h-80'>

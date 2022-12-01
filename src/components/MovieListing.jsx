@@ -2,16 +2,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMovies, getAllShows } from '../features/movies/MovieSlice';
 import MovieCard from './MovieCard';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import {Settings} from '../common/settings';
 
 const MovieListing = () => {
 
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
-  console.log(movies);
   let renderMovies = "";
   renderMovies = movies.Response === "True" ? (
     movies.Search.map((movie,index)=>(
-      console.log(movie),
       <MovieCard key={index} data={movie}/>
     ))
   ) 
@@ -21,7 +23,6 @@ const MovieListing = () => {
   let renderShows = "";
   renderShows = shows.Response === "True" ? (
     shows.Search.map((show,index)=>(
-      console.log(show),
       <MovieCard key={index} data={show}/>
     ))
   ) 
@@ -32,11 +33,15 @@ const MovieListing = () => {
     <div className='movie-wrapper'>
       <div className='my-5 mx-0'>
         <h2 className='text-font-secondary mb-3 font-normal'>Movies</h2>
-        <div className='grid grid-cols-aFill gap-4'>{renderMovies}</div>
+        <div>
+          <Slider {...Settings}>{renderMovies}</Slider>
+        </div>
       </div>
       <div className='my-5 mx-0'>
         <h2 className='text-font-secondary mb-3 font-normal'>Shows</h2>
-        <div className='grid grid-cols-aFill gap-4'>{renderShows}</div>
+        <div>
+          <Slider {...Settings}>{renderShows}</Slider>
+        </div>
       </div>
     </div>
   );

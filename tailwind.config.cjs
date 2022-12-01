@@ -17,6 +17,9 @@ module.exports = {
       },
       gridTemplateColumns:{
         'aFill':'repeat(auto-fill,minmax(220px,1fr))'
+      },
+      height:{
+        'mcard':'450px'
       }
     },
   },
